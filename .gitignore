@@ -8,3 +8,7 @@
 /kattis/*
 !/kattis/Makefile
 
+!/cforce/
+/cforce/*
+!/cforce/Makefile
+!/cforce/*.cpp
