@@ -7,7 +7,7 @@ CC = g++
 CFLAGS = -g -Wall
 
 # Build targer executable:
-TARGET = 306-a
+TARGET = 306-b
 
 all: $(TARGET)
 
