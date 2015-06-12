@@ -7,7 +7,7 @@ CC = g++
 CFLAGS = -g -Wall
 
 # Build targer executable:
-TARGET = 306-c
+TARGET = $*
 
 all: $(TARGET)
 
@@ -16,4 +16,4 @@ $(TARGET): $(TARGET).cpp
 
 # To start over from scratch, type 'make clean'
 clean:
-	rm $(TARGET) 
+	rm $(TARGET)
