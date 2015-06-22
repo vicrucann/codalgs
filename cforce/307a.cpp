@@ -21,42 +21,26 @@ int main(){
 
     int n;
     cin >> n;
-    vector<pair <int,int> > a;
-    int res[n];
+    int a[n];
+    //vector<pair <int,int> > a;
+    //int res[n];
     for (int i=0;i<n;++i){
-        int c;
-        cin >> c;
-        res[i] = c;
-        a.push_back(make_pair(c,i));
+        cin >> a[i];
+        //int c;
+        //cin >> c;
+        //res[i] = c;
+        //a.push_back(make_pair(c,i));
     }
-    sort(a.begin(), a.end(), foo);
-
-    int sc_p=1, p_p=1;
-    int resc[n];
+    //sort(a.begin(), a.end(), foo);
     for (int i=0;i<n;++i){
-        if (i==0){
-            sc_p=a[i].first;//res[a[i].second];
-            p_p = 1;
-            resc[a[i].second]=p_p;
+        int resi=1;
+        for (int j=0;j<n;++j){
+            if (a[i] < a[j])
+                resi++;
         }
-        else {
-            int sc = a[i].first;//res[a[i].second];
-            if (sc == sc_p){
-                resc[a[i].second]=p_p;
-            }
-            else{
-                p_p=i+1;
-                sc_p = a[i].first; //res[a[i].second];
-                resc[a[i].second]=p_p;
-            }
-        }
+        if (i)
+            cout << " ";
+        cout << resi;
     }
-    for (int i=0;i<n;++i){
-        if (i==0)
-            cout << resc[i];
-        else
-            cout << " " << resc[i];
-    }
-
     return 0;
 }
