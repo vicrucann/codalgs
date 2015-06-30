@@ -31,7 +31,7 @@ int main(){
         //res[i] = c;
         //a.push_back(make_pair(c,i));
     }
-    //sort(a.begin(), a.end(), foo);
+    //sort(a.begin(), a.end(), foo); // sort pair
     for (int i=0;i<n;++i){
         int resi=1;
         for (int j=0;j<n;++j){

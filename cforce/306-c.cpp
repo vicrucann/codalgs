@@ -24,7 +24,7 @@ int main(){
 				if (i<=j || j<=k || i<=k)
 					continue;
 				if (j<0){
-					s0+=s[i];
+					s0+=s[i]; // add char
 				}//1 number
 				if (k<0){
 					s0+=s[j];
