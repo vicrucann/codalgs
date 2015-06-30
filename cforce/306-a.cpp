@@ -8,7 +8,7 @@ int main(){
     cin >> s;
     string AB="AB";
     string BA="BA";
-    int x1 = s.find(AB);
+    int x1 = s.find(AB); // search
     int y1 = s.find(BA);
     int x2 = s.find(AB,y1+2);
     int y2 = s.find(BA,x1+2);
