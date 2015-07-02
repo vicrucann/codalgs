@@ -33,37 +33,26 @@ int main(){
     for (int i=0;i<n;++i) {
         scanf("%d", &data[i].enr);
         totE += data[i].enr;
-    }
-    for (int i=0;i<n;++i){
-        // energies for given length
         suff_enr[data[i].len] += data[i].enr;
-        // number of given length
         suff_n[data[i].len]++;
     }
     sort(data,data+n); // sort from min to max
 
     int idb=0,n_curr=1; // indices of begin and end of current block
-    int res = 0x7fffffff;
-    multiset<int, less<int> > q_enr; // queue of energies from min to max
-    multiset<int, less<int> >::iterator it_enr;
+    int res = totE+1;
+    multiset<int, greater<int> > q_enr; // queue of energies from min to max
+    multiset<int, greater<int> >::iterator it_enr;
+    int pastE=0, futE=totE;
     while(idb + n_curr <= n){
-        // define block boundaries and number of current elements
         int currE = suff_enr[data[idb].len];
         n_curr = suff_n[data[idb].len];
-        // calc cost to remove larger legs
-        int cost = totE - currE;
-        totE -= currE;
-        // remove legs that are smaller so that n_curr > n_small
+        int cost = futE - currE + pastE;
+        futE -= currE;
+        pastE += currE;
         int n_past = q_enr.size();
-        for (it_enr = q_enr.begin(); ; ++it_enr){
-            if (n_past >= n_curr){
-                n_past--;
-                cost += *it_enr;
-            }
-            else
-                break;
-        }
-        // next block initialization
+        int n_leave = min(n_past, n_curr - 1);
+        for (it_enr = q_enr.begin(); n_leave > 0; ++it_enr, n_leave--)
+            cost -= *it_enr;
         for (int i=idb;i<idb+n_curr;++i)
             q_enr.insert(data[i].enr);
         res = min(res,cost);
