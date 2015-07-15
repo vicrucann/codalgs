@@ -14,6 +14,8 @@
 using namespace std;
 
 int main(){
-    cerr << "Hello World" << endl;
+    int w;
+    scanf("%d", &w);
+    (w%2==0 && w>2)? printf("YES") : printf("NO");
     return 0;
 }

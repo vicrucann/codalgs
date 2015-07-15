@@ -14,6 +14,14 @@
 using namespace std;
 
 int main(){
-    cerr << "Hello World" << endl;
+    int n,k;
+    scanf("%d %d", &n, &k);
+    int a[n];
+    for (int i=0; i<n; ++i)
+        scanf("%d", &a[i]);
+    int j=0;
+    while (a[k-1]<=a[j] && a[j] && j<n)
+        j++;
+    printf("%d\n", j);
     return 0;
 }

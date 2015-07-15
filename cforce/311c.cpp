@@ -46,12 +46,12 @@ int main(){
     while(idb + n_curr <= n){
         int currE = suff_enr[data[idb].len];
         n_curr = suff_n[data[idb].len];
-        int cost = futE - currE + pastE;
         futE -= currE;
         pastE += currE;
+        int cost = futE + pastE;
         int n_past = q_enr.size();
         int n_leave = min(n_past, n_curr - 1);
-        for (it_enr = q_enr.begin(); n_leave > 0; ++it_enr, n_leave--)
+        for (it_enr = q_enr.begin(); n_leave-- ; ++it_enr)
             cost -= *it_enr;
         for (int i=idb;i<idb+n_curr;++i)
             q_enr.insert(data[i].enr);
