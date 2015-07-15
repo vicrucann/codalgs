@@ -14,6 +14,6 @@
 using namespace std;
 
 int main(){
-    cerr << "Hello World" << endl;
+    cerr << "Template" << endl;
     return 0;
 }
