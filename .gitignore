@@ -5,3 +5,7 @@
 !*.java
 !*.txt
 *.o
+*.exe
+*~
+*.stackdump
+*.swo
